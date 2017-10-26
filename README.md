@@ -1,4 +1,4 @@
-# Study notes and tips from user guides - ToC
+# Study notes and tips from user guides - ToC
 
 ## [Gradle](https://github.com/josephh/cheats/blob/master/gradle_cheatsheet.md#gradle)
 ## [Intellij](https://github.com/josephh/cheats/blob/master/intellij-cheatsheet.md#intellij-shortcuts)
