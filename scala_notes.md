@@ -1,5 +1,4 @@
-# Why scala?
-
+# Scala 
 * Classes - constructors can be parameterised - which are auto-assigned to instance variables, accessible everywhere in the
 class.
 
