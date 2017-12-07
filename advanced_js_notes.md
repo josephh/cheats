@@ -1,4 +1,4 @@
-## Javascript J.I.T compiler
+ ## Javascript J.I.T compiler
  1. register variable declarations
  1. use LHS and RHS principles to assign or initialise values.  While LHS and RHS are typically seen either side of an equals sign, there are other ways to assign values that don't include an equal sign, for example, when passing a parameter value to a function local variable (or parameter).  In that case LHS typically refers to the _target_ of an assignment and RHS, the _source_.
 
@@ -133,3 +133,26 @@ var c = function b() {
 The variable c is known to the compiler - via pre-compilation - but the assigned value will not be available until that line executes.
 
 **Functions are hoisted above variables.**
+Bitwise operators treat operands as a sequence of 32 bits - rather than decimal, hexadecimal or octal numbers.
+Javascript does the operation on 32-bit representations of numbers, but returns a standard Javascript numerical value.
+## Bitwise operations
+### AND &
+`var a = 9 /* 32 bit encoding 00000000000000000000000000001001 */, b = 10 /* 32 bit 00000000000000000000000000001010 * /, c = a & b` // (c is 8) Returns a one in each bit position for which the corresponding bits of BOTH operands are ones.
+### OR |
+`var a = 16 /* 32 bit 00000000000000000000000000001000 */, b = 3 /* 32 bit 00000000000000000000000000000011, c = a | b` // (c is 19) 	Returns a one in each bit position for which the corresponding bits of either or both operands are ones.
+### XOR ^
+`var a = 5 /* 32 bit 00000000000000000000000000000101 */, b = 2 /* binary 32 bit 00000000000000000000000000000010 */, c = a ^ b`  // (c is 7) Returns a one in each bit position for which the corresponding bits of either but not both operands are ones.
+### NOT ~
+`var a = ~ 19 /* 32 bit 00000000000000000000000000010011 */` // (a is (32 bit 00000000000000000000000000001100) 12) 	Inverts the bits of its operand.
+### LEFT shift <<
+`var a = 2 << b` // Shifts _a_ in binary representation _b_ (< 32) bits to the left, shifting in zeroes from the right. E.g. `(a is 8 (32 bit 00000000000000000000000000001000))`
+### Sign propagating right shift >>
+Shifts a in binary representation b (< 32) bits to the right, discarding bits shifted off.
+E.g. `var a = 32 /* 32 bit 00000000000000000000000000100000 */ >> 2 (a is 8 (32 bit 00000000000000000000000000001000))`
+### Zero-fill right shift >>>
+Shifts a in binary representation b (< 32) bits to the right, discarding bits shifted off, and shifting in zeroes from the left.
+### One's compliment = bitwise not + 1
+e.g.
+```javascript
+var a = 314, b = ~a + 314 // (a is -314)
+```
