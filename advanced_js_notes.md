@@ -1,4 +1,6 @@
+# Advanced Javascript notes
  ## Javascript J.I.T compiler
+
  1. register variable declarations
  1. use LHS and RHS principles to assign or initialise values.  While LHS and RHS are typically seen either side of an equals sign, there are other ways to assign values that don't include an equal sign, for example, when passing a parameter value to a function local variable (or parameter).  In that case LHS typically refers to the _target_ of an assignment and RHS, the _source_.
 
