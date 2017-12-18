@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="<template> element helps with client-side templating.  Typically done on the server, client-side templates support rise in popularity of client-side apps (SPAs).  The <template> element allows developers to create client-side templates made up of chunks of reusable DOM. The key thing about HTML templates is that they are inert. Your templates are not rendered by the browser until you activate them using JavaScript.
+    It’s also worth noting that content within a template is not considered part of the main document. Trying to select an element within a template from the main document object will not work. Instead you first have to select the template and then use querySelector() to access the element you want to target. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template">
+    <title>HTML 5 Element demo</title>
+  </head>
+  <body>
+    <table id="producttable">
+      <thead>
+        <tr>
+          <td>UPC_Code</td>
+          <td>Product_Name</td>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- existing data could optionally be included here -->
+      </tbody>
+    </table>
+
+    <template id="productrow">
+    <!-- style and script tags can also go into a template -->
+      <tr>
+        <td class="record"></td>
+        <td></td>
+      </tr>
+    </template>
+  </body>
+</html>
+
+<script type="text/javascript" src="template.js"> </script>
