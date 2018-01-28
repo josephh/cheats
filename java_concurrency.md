@@ -52,4 +52,11 @@ public class LoggingWidget extends Widget {
 }  
 ```
 #### Guarding state with locks
-Compound actions on shared state (check-then-act, read-modify-write) need to be atomic - by holding a lock for the entire duration of the action.  It's important to note that, if synchronisation is used to coordinate access to shared state/variables, then synchronisation is needed everywhere those variable are accessed and the _same lock_ must be used wherever that variable is accessed. 
+Compound actions on shared state (check-then-act, read-modify-write) need to be atomic - by holding a lock for the entire duration of the action.  It's important to note that, if synchronisation is used to coordinate access to shared state/variables, then synchronisation is needed everywhere those variable are accessed and the _same lock_ must be used wherever that variable is accessed.
+### Visibility
+Memory _visibility_ is important to help ensure threads actually do see changes to shared data.  Proper synchronization is needed for whenever data is shared between threads.
+Note, for 64-bit numbers (**double** and **long**) that ARE NOT declared volatile, the JVM is allowed to treat reads and writes as two separate operations - meaning if those occur in 2 different threads at the same time, the high 32 bits and low 32 bits from 2 different numbers may be returned.  
+Requiring all threads to synchronize on the same lock guarantees that values written by one thread are visible to a subsequent thread acquiring the same lock.
+#### Volatile
+_volatile_ keyword is seen as a weaker form of synchronization.  Compiler and runtime are put on notice that a variable is shared and that operations on it should not be reordered with other memory operations.  But accessing volatile variable performs no locking and so cannot cause the executing thread to block.
+Volatile variables are only recommended for use when simplifying implementation and verifying synchronization policy.  E.g. when there's a need to ensure visibility of a volatile's own state, or the state of the object they refer to, or indicating an important lifecycle event.
