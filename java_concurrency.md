@@ -51,3 +51,5 @@ public class LoggingWidget extends Widget {
     }
 }  
 ```
+#### Guarding state with locks
+Compound actions on shared state (check-then-act, read-modify-write) need to be atomic - by holding a lock for the entire duration of the action.  It's important to note that, if synchronisation is used to coordinate access to shared state/variables, then synchronisation is needed everywhere those variable are accessed and the _same lock_ must be used wherever that variable is accessed. 
