@@ -105,6 +105,8 @@ There are several methods for specifying which run mode to use; the order of res
 1. system properties (-D) in start up script
 1. Filename detection/ Jar name
 
+Consult runmode for a running instance, e.g. http://localhost:4502/system/console/status-slingsettings
+
 #### Touch UI
 * Coral gui libs
 Dialogue - for a cq:Component
