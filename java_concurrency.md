@@ -90,3 +90,15 @@ ways to safely publish an object
 1. store a ref to object into a volatile field or AtomicReference
 1. Store a ref to object into a __final__ field of properly constructed object
 1. Store a ref to object into a __final__ field properly guarded by a lock
+## Chapter 4 - Composing Objects
+While it is handy to understand low-level aspects of thread safety and synchronization, ideally we want classes that support thread safety and don't require analysis of each and every memory access for safe usage.
+### Designing a thread safe class
+1. identify variables that form the object's state
+1. Identify the invariants that constrain state variables
+1. Establish a policy for managing concurrent access to the object's state
+'State-space', i.e. the range of values a field can have, helps reason about an object's state.  In the extreme an immutable object can only ever be in a single state so is very straight-forward.  Final fields, used whenever possible, also help.
+### Instance confinement (or encapsulation)
+when an object is encapsulated within another object, all code paths that have access are known and so can be analyzed more easily.  Combining confinement with an appropriate locking discipline can ensure that otherwise non-thread-safe objects are used in a thread-safe manner.
+#### Java monitor pattern
+...where an object encapsulates all its mutable state and guards it with the object's own intrinsic lock.
+This has the advantage of being a very simple pattern.  But it is just a convention: any lock could be used provided it is used consistently and actually using a private field as a lock means client code cannot improperly acquire a lock it is not meant to use.
