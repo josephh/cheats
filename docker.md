@@ -12,3 +12,17 @@ docker run --name aem -u 0 -p 4502:4502 -p 9200:9200 -p 8081:8081 -it  aemtest /
 
 ## Run
 • `-P` will publish all the exposed container ports to random ports on the Docker host.  Mext you can see the ports by running the `docker port ~container~` command.
+
+## Networks
+which networks are up and available?
+> docker network ls
+
+what about the specifics of a network?
+> docker network inspect aemdockercompose_webnet
+
+how to join a container to a network?
+> docker network connect aemdockercompose_webnet aem
+
+### Network Debugging
+Is one container able to talk to another?  E.g. can aem container reach the elatic one over http on port 9200?
+> wget http://aemdockercompose_elastic_1:9200/cms -d --header='authorization: Basic ZWxhc3RpYzpjaGFuZ2VtZQ=='

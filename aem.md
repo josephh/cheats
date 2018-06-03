@@ -8,6 +8,9 @@ java -Xmx1024m -XX:MaxPermSize=256m -agentlib:jdwp=transport=dt_socket,address=8
 
 [Shortcuts](http://www.aemcq5tutorials.com/tutorials/aem-shortcuts-quick-reference-guide/#aem_useful_links)
 
+## Link checker
+http://localhost:4503/etc/linkchecker.html
+
 ### Local Admin/Dev Tooling
 [Edit listener afteredit (stack overflow)](https://stackoverflow.com/questions/35186800/adobe-cq-aem-trigger-afteredit-handler)
 
@@ -29,13 +32,16 @@ java -Xmx1024m -XX:MaxPermSize=256m -agentlib:jdwp=transport=dt_socket,address=8
 
 [Log config](http://localhost:4502/system/console/configMgr/org.apache.sling.commons.log.LogManager)
 
-[Query builder](http://localhost:4502/libs/cq/search/content/querydebug.html)
-
 [Search](http://localhost:4502/crx/explorer/ui/search.jsp)
 
-[Tag admin](http://localhost:4502/libs/cq/tagging/content/debug.html)
-
 [Translator admin](http://localhost:4502/libs/cq/i18n/translator.html)
+
+### Debugging
+?debugClientLibs=true
+
+[Query builder](http://localhost:4502/libs/cq/search/content/querydebug.html)
+
+[Tag admin](http://localhost:4502/libs/cq/tagging/content/debug.html)
 
 ### Development
 [AEM6 development](https://helpx.adobe.com/experience-manager/6-3/sites/developing/user-guide.html)
@@ -78,6 +84,8 @@ _or see welcome.html aem landing page - below AEM menu left panel_
 
 ### OSGI
 [OSGI config](https://helpx.adobe.com/experience-manager/6-2/sites/deploying/using/osgi-configuration-settings.html)
+
+test it http://localhost:4502/system/console/slingcaconfig (?)
 
 ### Packages
 [Package share](http://localhost:4502/crx/packageshare)
@@ -125,12 +133,16 @@ e.g. /libs/wcm/foundation/components/text
 * JSPs OOTB
 e.g. /libs/foundation/components/text
 
+##### Component Libraries
+Coral - /libs/granite/ui/components/coral/foundation
+Granite - /libs/granite/ui/components/foundation/form
+
 #### SSL
 SSL wizard is accessible at a granite url, e.g.
 http://stg-author.westeurope.cloudapp.azure.com:4502/libs/granite/security/content/sslConfig.html
 
 Certificates and trust store details are stored under user management, SSL service user, e.g.
-http://stg-author.westeurope.cloudapp.azure.com/libs/granite/security/content/userEditor.html/home/users/system/security/ssl-service
+http://stg-author.westeurope.cloudapp.azure.com:4502/libs/granite/security/content/userEditor.html/home/users/system/security/ssl-service
 
 OSGi config (SSL)
 http://prd-author.westeurope.cloudapp.azure.com:4502/system/console/configMgr Granite SSL Connector factory
@@ -147,3 +159,13 @@ To use vlt with this project, first build and install the package to your local 
 vlt --credentials admin:admin checkout -f ../META-INF/vault/filter.xml --force http://localhost:4502/crx
 ```
 Once the working copy is created, you can use the normal vlt up and vlt ci commands.
+
+## Assets
+### Images
+Access the various renditions of images with the Adobe provided servlet
+http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png
+...each image gets 4 x renditions automatically, e.g.s
+http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.48.48.png
+http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.100.140.png
+http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.319.319.png
+http://localhost:4502/assetdetails.html/content/dam/simplyhealth/comparison-new-child-cover.png

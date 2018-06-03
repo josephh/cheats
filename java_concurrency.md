@@ -90,3 +90,11 @@ ways to safely publish an object
 1. store a ref to object into a volatile field or AtomicReference
 1. Store a ref to object into a __final__ field of properly constructed object
 1. Store a ref to object into a __final__ field properly guarded by a lock
+### Adding functionality to existing thread-safe classes
+Many existing classes provide much of the thread-safe functionality we need.  But when there is something missing what to do?  E.g. A put-if-absent operation on a list.  List already has 'add' and 'contains' methods,  but a _check-then-act_ operation needs to be an atomic one.
+* Safest thing to do is to modify the existing class, but that may not be possible if  you do not have access to the source code, or be free to modify the class.  IN modifying a class, the existing synchronization strategy so it can be enhanced in a consistent manner.  Adding a new method directly to the class means all code implementing the synchronization policy is still in one place, making comprehension and analysis more straightforward.
+* Extend a class - assuming it was designed to support extension.  This is a more fragile approach: since implementation is now spread over multiple classes.  If an underlying classes changed its synchronisation policy, for example by locking on a different object to guard state, then the subclass would silently break.
+#### Client-side Locking
+...is tricky, entailing client-side code that - for example, through use of a wrapper - forces all use of a class through the client-controlled wrapper; but this approach dependsly on the client's wrapper code synchronizing on the same object as the wrapped class uses.  As a result client-side locking is even more fragile than extending an existing class, since locking code for class 'C' is going into classes (e.g. wrapper classes) that are totally unrelated to class C.  
+#### Composition
+This is a less fragile approach and involves an additional level owned and controlled by the controlling class.  The composing/ controlling class ignores the synchronisation policy of the composed object and provides its own, then delegating other, 'normal' operations to the composed object.
