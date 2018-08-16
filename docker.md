@@ -1,4 +1,8 @@
-# Docker cheat sheet -  
+# Docker cheat sheet
+
+## Build a docker image
+## Build applying the instructions in a local dockerfile, incorporating everything in the local folder
+docker build -t author:0.9.1
 
 ## Debugging
 > The exit code from docker run gives information about why the container failed to run or why it exited. When docker run exits with a non-zero code, the exit codes follow the chroot standard, see https://docs.docker.com/edge/engine/reference/run/#exit-status

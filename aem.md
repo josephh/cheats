@@ -43,6 +43,12 @@ http://localhost:4503/etc/linkchecker.html
 
 [Tag admin](http://localhost:4502/libs/cq/tagging/content/debug.html)
 
+[Resolver](https://stg-pub-1.westeurope.cloudapp.azure.com/system/console/slinglog)
+What's wrong with Sling (redirect) mappings?
+1. Log in the Publisher OSGi console
+2. Add in a Sling Logging configuration for TRACE logging on the package `org.apache.sling.resourceresolver.impl`
+3. Login into the Publisher server and look for Sling Mapping messages
+
 ### Development
 [AEM6 development](https://helpx.adobe.com/experience-manager/6-3/sites/developing/user-guide.html)
 
@@ -169,3 +175,6 @@ http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.th
 http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.100.140.png
 http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.319.319.png
 http://localhost:4502/assetdetails.html/content/dam/simplyhealth/comparison-new-child-cover.png
+
+## Workflow
+https://stg-author.westeurope.cloudapp.azure.com/libs/cq/workflow/content/console.htmls
