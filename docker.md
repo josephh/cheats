@@ -2,7 +2,7 @@
 
 ## Build a docker image
 ## Build applying the instructions in a local dockerfile, incorporating everything in the local folder
-docker build -t author:0.9.1
+docker build -t author:0.9.1 . (the 'dot' is needed to specify the local Dockerfile)
 
 ## Debugging
 > The exit code from docker run gives information about why the container failed to run or why it exited. When docker run exits with a non-zero code, the exit codes follow the chroot standard, see https://docs.docker.com/edge/engine/reference/run/#exit-status
@@ -15,7 +15,10 @@ docker run --name aem -p 4502:4502 -p 9200:9200 -p 8081:8081 -it  aemtest /bin/b
 docker run --name aem -u 0 -p 4502:4502 -p 9200:9200 -p 8081:8081 -it  aemtest /bin/bash
 
 ## Run
-• `-P` will publish all the exposed container ports to random ports on the Docker host.  Mext you can see the ports by running the `docker port ~container~` command.
+• `-P` will publish all the exposed container ports to random ports on the Docker host.  Next you can see the ports by running the `docker port ~container~` command.
+
+### Attach
+e.g. `docker exec -it aem bash`
 
 ## Networks
 which networks are up and available?

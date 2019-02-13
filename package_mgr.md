@@ -5,4 +5,4 @@ Root path: /content/simplyhealth/about-us
 Rules exclude /content/simplyhealth/about-us/legal(/.*)
 3. Save, Build then Download.
 4. Navigate to production package manager, and login as an admin: https://prd-author.westeurope.cloudapp.azure.com/crx/packmgr
-5. Upload the package and install
+5. Upload the package - N.B. Advanced options allow replace/ merge options - and install

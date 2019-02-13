@@ -1,6 +1,9 @@
 # AEM links and notes
 java -Xmx1024m -XX:MaxPermSize=256m -agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n -jar cq-author-p4502.jar -v -nofork
 
+## CMS / CRX explorer
+https://stg-author.westeurope.cloudapp.azure.com/crx/explorer/index.jsp
+
 ## Links
 [Adobe Tv](https://tv.adobe.com/videos/omniture/)
 
@@ -95,6 +98,8 @@ test it http://localhost:4502/system/console/slingcaconfig (?)
 
 ### Packages
 [Package share](http://localhost:4502/crx/packageshare)
+[Package manager interface](http://localhost:4502/crx/packmgr/service.jsp?cmd=ls) List packages
+http://localhost:4502/crx/packmgr/service.jsp?cmd=help ...see the endpoints
 
 ### Dev notes
 cq:listeners
@@ -157,6 +162,9 @@ PRD azure public facing IP http://13.94.255.243:443/
 
 local investigation:
 There was an error while configuring the SSL listener: Connect to 192.168.140.27:8443 [/192.168.140.27] failed: connect timed out
+
+#### Sling
+https://github.com/paulrohrbeck/aem-links/blob/master/curl_cheatsheet.md
 
 #### Vault
 Using with VLT

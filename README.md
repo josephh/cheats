@@ -1,5 +1,9 @@
 # Study notes and tips from user guides - ToC
 
+## [AEM](https://github.com/josephh/cheats/blob/master/aem.md)
+## [Azure](https://github.com/josephh/cheats/blob/master/azure-swap.md)
+## [C](https://github.com/josephh/cheats/blob/master/C.md)
+## [Docker](https://github.com/josephh/cheats/blob/master/docker.md)
 ## [Elastic](https://github.com/josephh/cheats/blob/master/elastic.md)
 ## [Gradle](https://github.com/josephh/cheats/blob/master/gradle_cheatsheet.md)
 ## [Intellij](https://github.com/josephh/cheats/blob/master/intellij-cheatsheet.md)
@@ -7,8 +11,12 @@
 ## [JUnit](https://github.com/josephh/cheats/blob/master/junit.md)
 ## [Javascript](https://github.com/josephh/cheats/blob/master/advanced_js_notes.md)
 ## [Microservices](https://github.com/josephh/cheats/blob/master/microservices.md)
+## [MySql](https://github.com/josephh/cheats/blob/master/mysql.md)
 ## [Node](https://github.com/josephh/cheats/blob/master/node_cheatsheet.md)
 ## [Oracle RDBMS](https://github.com/josephh/cheats/blob/master/Oracle_cheet.md#oracle-cheat-sheet)
 ## [Puppet](https://github.com/josephh/cheats/blob/master/puppet.md)
-## [Scala](https://github.com/josephh/cheats/blob/master/scala_notes.md#scala)
-x
+## [React](https://github.com/josephh/cheats/blob/master/react.md)
+## [Scala](https://github.com/josephh/cheats/blob/master/scala_notes.md)
+## [Sling](https://github.com/josephh/cheats/blob/master/sling.md)
+## [Vi](https://github.com/josephh/cheats/blob/vi.md)
+## [VueJs](https://github.com/josephh/cheats/blob/vue.md)
