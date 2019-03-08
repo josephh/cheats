@@ -120,3 +120,33 @@ console.log(person.name, clonedPerson.name); // outputs 'jack' 'joe'
 ## JSX Restrictions
 * Can't use 'class' inline in JSX - since it's actually Javascript - prefer className
 * JSX elements are meant to have a single root element
+## Components
+### props
+`props` are set from outside a component instance - and passed to it as parameters.
+React will always pass a `props` parameter into the code that instantiates a react component.  This can easily be passed from JSX the tag corresponding to the react component, e.g. <NavigationCard title="Upload a Catch">  
+### props.children
+{props.children}
+This is a way to push structured html into a component.   We can access all the child elements of a component - the value between the JSX Tags, e.g. <NavigationCard title="Upload a Catch">This is the value we are interested in between but it can be any type of content, including more markup</NavigationCard>
+### state
+`state` is a field in React's 'Component' class.
+:alert react "hooks" let's u you use state in 'function' declared components (typically you need a class extending Component to do that).
+### pass 'methods' as props
+For example, if a click handler is defined in a class, it can be passed into another a contained component to have some effect back on the parent container.  This can be helpful to keep components dumb or stateless (i.e. presentation only) and restrict state mutation to discrete areas of the app.  
+1. ```javascript
+<Person
+  title="{this.state.persons[0].name}"
+  age="{this.state.persons[0].age}"
+  click="{this.switchTitleHandler}"
+  />
+```
+
+How to parameterise function calls that affect, for example, the state object of a React Component?  
+1. ```<button onClick={this.switchTitleHandler.bind(this, 'new value')} /> // bind the class instance and add an additional argument```     
+1. write an anonymous function with ES6 arrow syntax (n.b. this is inefficient in coding terms) ```<button onClick={ () => this.switchTitleHandler('new value') }/> // this syntax returns a function which returns a value...```
+### Two-way bindings
+```javascript
+<input onChange="{}" />
+```
+
+### Conditional Logic in JSX
+`{ if(test == 'some test') ... }` you can't use if statements inside JSX expressions but you can use ternary operators.
