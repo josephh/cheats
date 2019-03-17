@@ -150,3 +150,4 @@ How to parameterise function calls that affect, for example, the state object of
 
 ### Conditional Logic in JSX
 `{ if(test == 'some test') ... }` you can't use if statements inside JSX expressions but you can use ternary operators.
+However, ternary operators can lead to hard to follow code, a better approach is to put the logic inside the render() function but _outside_ the JSX blocks.  The render() method is called for a number of different trigger reasons, one of which is a state change.  So when assigning variables in the render() method - for subsequent use inside some JSX - then this can be done following a check of the current state.    
