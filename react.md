@@ -1,4 +1,4 @@
-#Javascript Nextgen Language Features
+# Javascript Nextgen Language Features
 ## Modules
 
 ```javascript
@@ -132,7 +132,7 @@ This is a way to push structured html into a component.   We can access all the 
 :alert react "hooks" let's u you use state in 'function' declared components (typically you need a class extending Component to do that).
 ### pass 'methods' as props
 For example, if a click handler is defined in a class, it can be passed into another a contained component to have some effect back on the parent container.  This can be helpful to keep components dumb or stateless (i.e. presentation only) and restrict state mutation to discrete areas of the app.  
-1. ```javascript
+```javascript
 <Person
   title="{this.state.persons[0].name}"
   age="{this.state.persons[0].age}"
