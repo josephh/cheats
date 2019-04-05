@@ -142,7 +142,7 @@ For example, if a click handler is defined in a class, it can be passed into ano
 
 How to parameterise function calls that affect, for example, the state object of a React Component?  
 1. ```<button onClick={this.switchTitleHandler.bind(this, 'new value')} /> // bind the class instance and add an additional argument```     
-1. write an anonymous function with ES6 arrow syntax (n.b. this is inefficient in coding terms) ```<button onClick={ () => this.switchTitleHandler('new value') }/> // this syntax returns a function which returns a value...```
+1. write an anonymous function with ES6 arrow syntax (n.b. this is inefficient in coding terms but often preferred!) ```<button onClick={ () => this.switchTitleHandler('new value') }/> // this syntax returns a function which returns a value...```
 ### Two-way bindings
 ```javascript
 <input onChange="{}" />
@@ -151,3 +151,113 @@ How to parameterise function calls that affect, for example, the state object of
 ### Conditional Logic in JSX
 `{ if(test == 'some test') ... }` you can't use if statements inside JSX expressions but you can use ternary operators.
 However, ternary operators can lead to hard to follow code, a better approach is to put the logic inside the render() function but _outside_ the JSX blocks.  The render() method is called for a number of different trigger reasons, one of which is a state change.  So when assigning variables in the render() method - for subsequent use inside some JSX - then this can be done following a check of the current state.    
+
+## Working with Lists
+To use Javascript arrays inside JSX blocks, these arrays must be convered to JSX expressions.  We can do this with `Array.map()`
+
+### Manipulating arrays
+When updating state in React, it is bad practise to write code that deals directly with references to the state.  Such as
+```javascript
+deleteCardHandler = (cardsIndex) => {
+  const cards = this.state.cards
+  cards.splice(cardsIndex, 1) // this mutates the state via the cards ref
+  this.setState({cards: cards})
+}
+```
+better to copy by value (IMMUTABLE), update that and _then_ set state. E.g.
+
+```javascript
+deleteCardHandler = (cardsIndex) => {
+  const cards = this.state.cards.slice() // no args means new copy of array
+  cards.splice(cardsIndex, 1) // IMMUTABLE approach
+  this.setState({cards: cards})
+}
+```
+Alternatively use the spread operator
+
+```javascript
+deleteCardHandler = (cardsIndex) => {
+  const cards = [...this.state.cards] // 'spread' creates a new array
+  cards.splice(cardsIndex, 1) // IMMUTABLE approach
+  this.setState({cards: cards})
+}
+```
+### `key` Properties on React Components
+Key properties help make react virtual DOM comparison quicker - when comparing current and future state changes.  An array index is a _bad_ identifier.  Try and find a unique identifier, such as a database generated key.
+
+## Summary
+With react, when conditionally outputting objects, use javascript - same for lists.  Create variables that are checked ahead of building JSX objects to return from render().  For lists, use the map object to return a new area, similarly of JSX objects.  'Map()' provides access to the index as well as the element itself - so use that if necessary to, for example, remove an element.  Add a key to JSX elements to support efficient updates to the react state and re-rendering   
+
+# Redux and (Shared) State Management
+How to deal with a scenario such as an 'is authenticated' bit of state, where multiple collaborating components all need that piece of information?  A naive approach is to use routing with query parameters that pass state 'forwards' from page to page, or component to component.  Another approach is long chains of 'props' being sent between components.  We can't use a global javascript variable either, since React's reactivity system doesn't react to changes in arbitrary global variable changes.  Redux does however, enable a global _store_ that can help.
+
+## Redux
+React integrates with the 3rd party, Redux library, which keeps a central - a giant js object - that stores the entire application state.  Redux defines the 'process' of how the app state can change.  Because the management of shared state is shifted from inside a component, we no longer rely on internal mutation of `this.state` but depend on the `props` passed into a component by the redux framework.   
+It works similar to the following,
+1. Redux Actions - dispatched from a React app's own components.  An Action is an info package with a 'type' (or description) and a 'payload'.  These actions don't reach the store, they are just value objects or messages.
+1. Redux Reducer(s).  These 'route reducers' (multiple reducers can be merged into one) _are_ connected to the store.  A reducer receives the Action and the old state as input; it returns the new state.  A reducer is a single function that must execute synchronously only (with no side effects and no other operations, such as http requests).  The reducer function replaces the old state in the store and must do so in an immutable fashion.
+1. Subscribers to the store.  Components subscribe to store updates to be notified of state changes.
+
+### Add Redux to a Project
+1. `npm install redux --save`
+1. `import { createStore } from 'redux';`
+1. provide a store folder and a reducer.js file, e.g. at store/reducer.js.  Write a reducer function code and export it, e.g.
+```javascript
+const initialState = {
+  counter: 0
+}
+function reducer(state = initialState, action){
+    return {
+      ...state,
+      counter: state.counter + action.value
+    }
+}
+export default reducer
+```
+1. in the app.js that is to use the store, `import reducer from './store/reducer';` and then use the reducer in the call to setup the store, `const store = createStore(reducer)`
+1. `npm install react-redux --save`
+1. `import { Provider } from 'react-redux';`
+1. Add a Provider 'wrapper' JSX element to connect the store to the application.  'Provider' expects a store property to be passed in.  E.g.
+```javascript
+function render () {
+    ReactDOM.render(
+    (
+      <Provider store={store}>
+          <App />
+      </Provider>
+    ), document.getElementById('root'));
+}
+```
+1. Setup subscribers to connect container elements to the store.  Rather than use the programmatic subscribe, we `import { connect } from 'react-redux'` into components that read and write shared application state.  'connect' is a higher order function, which takes arguments ([mapStateToProps], [mapDispatchToProps], [mergeProps], [options]) and returns a function,  The returned function _takes the container component as its function argument_ e.g. `connect(mappings, actions)(TableOfCover)`, e.g.
+```javascript
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+class TableOfCover extends Component {
+  // ... internals
+}
+// specify how 'state managed by redux is mapped to props of this container'.
+// we define a function here that can be passed to redux to act as a callback later on, when needed.  The names of fields in the newly created object will result in prop names for this component to use internally
+const mapStateToProps = state => {return {ctr: state.counter} }
+// actions?
+export default connect(mapStateToProps, ??? actions ??? )(TableOfCover)
+```
+1. How to dispatch actions from components?
+Using redux standalone, we can just use `store.dispatch({type: 'ADD', 1})`.  Using it here we have access to the store thanks to use of the `connect()()` higher order function: this allows us to pass a mapping between actions and props (indicating what sort of actions this component or container wants to dispatch).  The dispatch function we can call back on, is essentially a helper function that will eventually call `store.dispatch`.  E.g.
+```javascript
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+class TableOfCover extends Component {
+  // ... internals
+}
+// specify how 'state managed by redux is mapped to props of this container'.
+// we define a function here that can be passed to redux to act as a callback later on, when needed.  The names of fields in the newly created object will result in prop names for this component to use internally
+const mapStateToProps = state => {return {ctr: state.counter} }
+const mapDispatchToProps = dispatch => {
+      return {
+        onIncrementCounter: () => dispatch({type: 'INCREMEMENT'})
+      }
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(TableOfCover)
+// if we only care about just actions of just state, the other argument can be null
+// e.g. export default connect(null, mapDispatchToProps)(TableOfCover)
+```
