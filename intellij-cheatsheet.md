@@ -27,7 +27,7 @@ cmd+shift+a: all operations
 : add a unit test
 
 ## JAVADOC
-ctrl+j: documentation quick view
+ctrl+j (or F1): documentation quick view
 
 ## DEBUG
 alt+cmd+R: resume execution (following break)
