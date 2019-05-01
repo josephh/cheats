@@ -83,4 +83,23 @@ class MyComponent extends Component {
 
 export default Radium(MyComponent)
 ```
-Radium also lets us write stuff like the following, `const style = { '@media (min-width: 500px)': { width: '450px' } }` but to do this, you must `import { StyleRoot } from 'radium' and wrap the **whole application** - i.e. App.js - in it 
+Radium also lets us write stuff like the following, `const style = { '@media (min-width: 500px)': { width: '450px' } }` but to do this, you must `import { StyleRoot } from 'radium' and wrap the **whole application** - i.e. App.js - in it
+## Enabling CSS Modules
+`npm install react-scripts`
+Provided we are using react-scripts higher than version 2.0.0, we can then name css scripts as e.g. Button.module.css (or Button.module.sass) and once imported, it will then provide CSS that is _**scoped**_ to the component.
+Notes at [create-react-app](https://facebook.github.io/create-react-app/docs/adding-a-css-modules-stylesheet)
+Doing an import then looks like this in a component file:
+```javascript
+import React from 'react';
+
+import classes from './Button.module.css';
+
+const button = (props) => (
+    <button
+        disabled={props.disabled}
+        className={[classes.Button, classes[props.btnType]].join(' ')}
+        onClick={props.clicked}>{props.children}</button>
+);
+
+export default button;
+``` 
