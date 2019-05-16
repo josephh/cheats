@@ -1,0 +1,6 @@
+# Java Concurrency in Practise
+## Notes from Brian Goetz textbook
+## 01. The benefits of multiple threads
+1. servers - a single threaded server will need to use non-blocking I/O if it is to handle multiple requests (rather than all requests stalling when that thread is blocked). However, non-blocking, asynchronous I/O is complicated! So, being able to create a new thread to handle each new request and use synchronous, blocking code in that individual thread is simpler.
+1. frameworks - like RMI and servlets - can create new threads for each request, with synchronisation at necessary points.  This allows for simpler component development.
+1. Better, more responsive GUIs - like AWT and Swing.  Single-threaded applications that provide a GUI must either frequently poll for input events, or employ a 'main event loop'.  Where code called from the main event loop takes a long time to complete, the GUI appears to freeze. AWT and Swing avoid this by using an extra thread - an event dispatch thread - instead of an event loop.  Most GUI frameworks are still single-threaded subsystems - and so have an event loop - but that event loop runs in its own dedicated thread, under the control of the GUI toolkit rather than the application.

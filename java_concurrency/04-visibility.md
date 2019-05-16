@@ -1,4 +1,4 @@
-# Java Concurrency
+# Java Concurrency in Practise
 ## Notes from Brian Goetz textbook
 ## The benefits of multiple threads
 1. servers - a single threaded server will need to use non-blocking I/O if it is to handle multiple requests (rather than all requests stalling when that thread is blocked). However, non-blocking, asynchronous I/O is complicated! So, being able to create a new thread to handle each new request and use synchronous, blocking code in that individual thread is simpler.
@@ -131,4 +131,4 @@ Servers should exhibit good throughput and good responsiveness under normal load
 #### Thread per request server -- poor resource management
 [...risks too many threads causing performance degradation and eventual out of memory](https://github.com/josephh/jcip_executor/blob/master/src/main/java/ExplicitThreadPerTask.java) :neutral_face: (main problem here is nothing puts a limit on the number of tasks created, other than the rate at which clients can throw requests at the server)
 #### Executor framework
-_bounded queues_ help prevent an overloaded application from running out of memory.  _Thread pools_ offer the same benefit for thread management - see `java.util.concurrent`'s thread pool implementation a.k.a **Executor framework**.  In this framework the primary abstraction for task execution is not Thread but the Executor interface's `void execute(Runnable command);`.  Executor is based on the producer-consumer pattern (producers submit tasks (units of work to be done), threads that do the work are the consumers).  So this abstraction is a nice approach to decoupling `task submission` from `task execution`.
+_bounded queues_ help prevent an overloaded application from running out of memory.  _Thread pools_ offer the same benefit for thread management - see `java.util.concurrent`'s thread pool implementation a.k.a **Executor framework**.  In this framework the primary abstraction for task execution is not Thread but the Executor interface's `void execute(Runnable command);`.  Executor is based on the producer-consumer pattern (producers submit tasks (units of work to be done), threads that do the work are the consumers).  So this abstraction is a nice approach to decoupling `task submission` from `task execution`.  
