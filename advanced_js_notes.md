@@ -37,6 +37,26 @@ function () { /* function body goes here */ }; // this is an 'anonymous' functio
  - debugging is hard without names
  - self-documenting, more-easily-readable code
 
+## Function Invocation - the 4 constructs
+1. methods
+An object with a function assigned to one its properties, is invoked a method.  `this` is bound to the containing object
+```javascript
+let O = { i: 0 }
+O.add = function (n) {
+  this.i = this.i + n;
+  return this.i;
+}
+```
+2. constructors
+```javascript
+```
+3. prototypal (`apply`)
+```javascript
+```
+4. function
+```javascript
+```
+
 ## Scope miscellany
 ```javascript
  try{}catch(err){/* catch block has its own scope - meaning that err is not available outside of the catch block.*/}
