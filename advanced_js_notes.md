@@ -38,7 +38,7 @@ function () { /* function body goes here */ }; // this is an 'anonymous' functio
  - self-documenting, more-easily-readable code
 
 ## Function Invocation - the 4 constructs
-1. methods
+1. methods  
 An object with a function assigned to one its properties, is invoked a method.  `this` is bound to the containing object
 ```javascript
 let O = { i: 0 }
@@ -47,13 +47,52 @@ O.add = function (n) {
   return this.i;
 }
 ```
-2. constructors
+2. constructors  
+are capitalised by convention and expected to be used ONLY with the keyword `new`
 ```javascript
+let NewObject = function(initVal) {
+  this.initVal = initVal
+}
+let no = new NewObject('abc')
+console.log(`new object's initVal is set to no.initVal` )
 ```
 3. prototypal (`apply`)
+
+ `Function.prototype.apply` accepts 2 arguments, `this` and `args` (an array-like) object which can be used as the arguments to the function to be applied.
 ```javascript
+var Q = function() {}
+typeof Q // "function"
+Q.prototype.add1 = function(n) {return n + 1;}
+var x = new Q
+typeof x // "object"
+x.add1(9) // 10
+Q.prototype.add1.apply(this, )
 ```
 4. function
+`this` is bound to global scope - **NOT** the parent object
+```javascript
+function outer() = {
+  var that = this;
+  function inner() {
+    console.log(`in the inner function, still have access to the containing function's this object via _that_`)
+    that.newVal = "def"
+  }
+  console.log(`this object's newVal set yet? ${that.newVal? 'yes' : 'not yet'}`)
+}
+```
+
+## Functions
+### Closure
+Javascript functions entirely 'closed' with another function have access to the containing functions state.
+```javascript
+```
+### Curry
+```javascript
+```
+### Cascade
+```javascript
+```
+### Memoization
 ```javascript
 ```
 

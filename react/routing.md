@@ -69,8 +69,52 @@ use the `push` function to add values into a navigation change. e.g.
 ```
 
 ## Nested routes
+Nested routes go _inside_ another component
 ```javascript
 import { Route } from 'react-router-dom'
+import { AnotherComponent } from './another-component'
 
-  <Route path={this.props.match.url} // or alternatively path={this.props.path + '/contact-data'}
+  <Route path={this.props.match.url} />
+
+    // routes can also take a component arg
+  <Route
+    path={this.props.match.path + '/form'}
+    component={AnotherComponent}/>
 ```
+
+### Passing data between pages
+Passing data from one context to another can be achieved with a similar approach to the nested path that calls in a `component`.  But rather than `component`, the `render` property can be called, e.g.
+```javascript
+import { Route } from 'react-router-dom'
+import { AnotherComponent } from './another-component'
+
+  // routes can also use the render property, which then allows props to be passed
+  <Route
+    path={this.props.match.path + '/form'}
+    render={() => <AnotherComponent inputVals={this.state.someState} />)}/>
+```
+Using `ComponentWillMount(...)` allows for state to be set ahead of rendering a component and is a convenient time to handle incoming request parameters.
+When using the router to move to included a nested component, the `history` prop will not be available to the nested object.  In this case it's necessary to either use the `withRouter(...)` method, or to include the current props and pass those on with the spread operator to the nested object, i.e.
+```javascript
+  // routes can also use the render property, which then allows props to be passed
+  <Route
+    path={this.props.match.path + '/form'}
+    render={() => <AnotherComponent inputVals={this.state.someState} {...props}/>)}/>
+```
+this means that the nested element can then access `this.props.history` and call the pertinent methods (like, `history.push()`) on that.  (This is handy, for example, when doing some navigation at the end of a click event handler, where the event handling happens in the nested component).
+
+## Navigation Links
+React router provides navigation links as part of the library.
+```javascript
+import { NavLink } from 'react-router-dom'; // NavLink assigns a default css class name 'active' to style the active link (this is configurable)
+```
+The configurable, default NavLink active class is important when using css modules.  Since CSS modules adds additional hash values into class names dynamically at runtime, a CSS class selector like a.active won't work with the dynamically created class name.  `NavLink` provides a property, `activeClassName`= so we can use a classes property assigned via an ES6 module import, e.g.
+```javascript
+import { NavLink } from 'react-router-dom';
+import classes from './AnotherComponent.css'
+
+<NavLink
+  to="/somePath"
+  activeClassName={classes.active} exact>To Some Path<NavLink/>
+```
+Note, include the keyword 'exact' to avoid **all** links ending up all styled as active (since routes are treated as a prefix so if the root path is ever treated - in code - as active, then that will apply to all paths).

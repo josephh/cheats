@@ -36,7 +36,7 @@ How to parameterise function calls that affect, for example, the state object of
 However, ternary operators can lead to hard to follow code, a better approach is to put the logic inside the render() function but _outside_ the JSX blocks.  The render() method is called for a number of different trigger reasons, one of which is a state change.  So when assigning variables in the render() method - for subsequent use inside some JSX - then this can be done following a check of the current state.    
 
 ## Working with Lists
-To use Javascript arrays inside JSX blocks, these arrays must be convered to JSX expressions.  We can do this with `Array.map()`
+To use Javascript arrays inside JSX blocks, these arrays must be converted to JSX expressions.  We can do this with `Array.map()`
 
 ### Manipulating arrays
 When updating state in React, it is bad practise to write code that deals directly with references to the state.  Such as
