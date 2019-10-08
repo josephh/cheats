@@ -64,3 +64,9 @@ Constructor needs to call `super(props)` if added.
 1. `componentDidMount()` //...executes ONLY ONCE render() and rendering of all child components completes!  componentDidMount can be used to trigger side-effects, e.g. call out to other services but should NOT be used to do SYNCHRONOUS setting of state
 Note, `componentWillMount()` was previously available (and still supported) but discouraged from use because of it was easy to use incorrectly.
 ##### Lifecycle hooks UPDATE
+1. `static getDerivedStateFromProps(props, state)` // best to avoid this
+1. `shouldComponentUpdate(nextProps, nextState)` // this is where you can decide whether or not to continue with render/re-rendering of components.  quite handy as it can improve performance by avoiding unnecessary update cycles
+1. `render()` // : producing virtual DOM...
+1. update child component props // followed by all child component code being re-rendered if props or state have changed
+1. `getSnapshotBeforeUpdate(prevProps, prevState)` // generally not needed; helpful for operations such as returning to a previous scroll position on a web page, after some redrawing of visual components
+1. `componentDidUpdate()` // this is OK now for operations with potential side-effect, e.g. calls to external http endpoints.  however :warning: beware danger of infinite loops
