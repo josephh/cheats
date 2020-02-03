@@ -115,6 +115,6 @@ import classes from './AnotherComponent.css'
 
 <NavLink
   to="/somePath"
-  activeClassName={classes.active} exact>To Some Path<NavLink/>
+  activeClassName={classes.active} exact>To Some Path</NavLink>
 ```
 Note, include the keyword 'exact' to avoid **all** links ending up all styled as active (since routes are treated as a prefix so if the root path is ever treated - in code - as active, then that will apply to all paths).

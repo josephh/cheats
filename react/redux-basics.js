@@ -1,4 +1,4 @@
-/* running with node only - so use the node 'require' synatx */
+/* running with node only - so use the node 'require' syntax */
 const redux = require('redux')
 const createStore = redux.createStore // get a ref to the function
 const initialState = { // doesn't have to be an object but usually is!
