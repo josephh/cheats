@@ -1,4 +1,4 @@
-# SALESFORCE _ COMMUNITIES - 04 LGHTNING WEB COMPONENTS STYLING
+# SALESFORCE _ COMMUNITIES - 04 LIGHTNING WEB COMPONENTS STYLING
 ## How to add Styling?
 ### CSS
 1. Provide a css file for the component, e.g. `force-app/main/default/lwc/helloWorld/helloWorld.css`.  Provide css to target the component in that file.
