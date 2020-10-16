@@ -7,7 +7,8 @@ XML elements used in the SF LWC metadata files - typically sat alongside the res
 * `masterLabel` // provides a canonical name
 * `targets` // are used to specify where this component can be used in Communities
 * `targetConfigs` // can be used to further narrow the availability of the component, e.g. to only certain SF objects - like lightning__RecordPage and its specific objects like 'Account', 'Case' etc.
-* `targetConfig` // the individual entries under targetConfigs allow details to be specified.  They also provide a way to get values into components.  See example below.
+* `targetConfig` // the individual entries under targetConfigs allow details to be specified.  They also provide a way to get values into components.  See example below.  :information_source: Note the need to specify
+`<target>lightningCommunity_Default</target>` to add LWCs to Communities.
 
 ```xml
 <!-- fooComp.js-meta.xml -->
@@ -50,4 +51,30 @@ import { LightningElement, api } from 'lwc';
 export default class FooComp extends LightningElement {
   @api message // this allows the value to be set using the property in the meta
 }
+```
+### Expose Design Attributes
+```xml
+<!-- fooComp.js-meta.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+    </targets>
+    <targetConfigs>
+      <targetConfig targets="lightning__HomePage">
+        <property name="message" type="String" label="Welcome Message"></property>
+      </targetConfig>
+      <targetConfig targets="lightning__RecordPage, lightning__HomePage, lightningCommunity__Default">
+          <property name="height" type="Integer" label="Height"></property>
+          <property name="width" type="Integer" label="Width"></property>
+      </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
+```
+// .js
+import { LightningElement, api } from 'lwc';
+```
+```html
+// .html
 ```

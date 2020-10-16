@@ -1,0 +1,17 @@
+salesforce community - adding users
+"role is what you can see" : "profile is what you can do with it"
+
+salesforce classic
+accounts > new account
+create individual client (or individual prospect)
+Manage eternal account > Enable user > create personal account, select profile add email address, add username .  Enable options like 'Knowledge user' checkbox.  > save
+Email is sent
+Follow the 'contact' link.
+Login to community to test the new user 'individual client' account
+
+In Communities only - the same
+
+outline="${item.outline || 'false'}"
+colour="${'primary'|| 'tertiary'}"
+full-width="${item.fullWidth}"
+               

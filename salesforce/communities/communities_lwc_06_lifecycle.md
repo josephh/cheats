@@ -46,9 +46,9 @@ export default class HooksDemo extends LightningElement {
   renderedCallback() {
     console.log('inside renderedCallback')
   }
-  // render() {
-  //   // commented because it needs to return html template
-  // }
+  render() {
+    // commented because it needs to return html template
+  }
   errorCallback(error, stack) {
     console.error(error);
   }

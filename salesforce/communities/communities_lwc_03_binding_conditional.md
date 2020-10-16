@@ -1,4 +1,4 @@
-# SALESFORCE _ COMMUNITIES - 03 LIGHTNING WEB COMPONENTS JAVASCRIPT BINDING
+# SALESFORCE _ COMMUNITIES - 03 LIGHTNING WEB COMPONENTS JAVASCRIPT BINDING ND CONDITIONAL RENDERING
 ## How to link js into html template?
 ### JS Binding to class properties
 In the CLI provided js file for the component, add a property...

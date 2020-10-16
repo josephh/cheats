@@ -1,4 +1,21 @@
 # C Programming
+## Compilation
+`gcc HelloWorld.c` this will output file a.out
+`gcc -W all HelloWorld.c -o hello` this will progress through the 4 phases of C program creation; '-W all' will output all (verbose) compiler warnings and errors.  The remaining output file will be called 'hello' and can be run using `./hello`
+`gcc -W all -save-temps HelloWorld.c -o hello` this will progress through the 4 phases of C program creation but leave all intermediary files in place.
+### Compilation Stages
+1. Pre-processing (ends up in HelloWorld.i)
+  * Removal of Comments
+  * Expansion of Macros
+  * Expansion of the included files (such as stdio.h - gone from ~.i files are now part of source code)
+  * Conditional compilation
+1. Compilation (ends up in HelloWorld.s)
+  * intermediate compiled output file: assembly level instructions.
+1. Assembly (ends up in HelloWorld.o)
+  *  ~.s is taken as input and turned into ~.o by assembler: machine level instructions (only existing code is converted into machine language)
+1. Linking (ends up in final output file)
+  * linking of function calls with their definitions (where all these functions are implemented). Adds extra code to our program, e.g handling of command line input.  
+  
 ## Data types
 ### Basic types
 arithmetic

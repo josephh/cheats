@@ -6,7 +6,7 @@ const m = (i, n) => return i * n
 ```
 ```js
 // lwc/foo/fooClient.js
-
+  
 import { LightningElement } from 'lwc';
 import { Shared } from './shared.js';
 

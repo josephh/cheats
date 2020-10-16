@@ -79,10 +79,10 @@ Whether the 3 dots are a spread or rest operator depends on where it's used
 ### Spread
 Used to split array elements or object properties
 ```javascript
-const newArray = [...oldArray, 'new item 1', '2', '3'] an old array is added to a new one, with additional items added to it   
+const newArray = [...oldArray, 'new item 1', '2', '3'] a new array is created that takes an old one and adds new items to it   
 ```
 ```javascript
-const newObject = {...oldObject, foo: 'bar', goo: 'far'} an old object gets additional properties (existing properties with matching keys are replaced).   
+const newObject = {...oldObject, foo: 'bar', goo: 'far'} an new object is created built from an existing objects and adds new ones (existing properties with matching keys are replaced).   
 ```
 ### Rest
 Used to merge a list of (function) arguments into an array
