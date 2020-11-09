@@ -21,7 +21,7 @@ October2020
 
 to connect to **devcomm1**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm1 -s`
-joseph.jobbings@simplyhealth.co.uk.devcomm1
+joseph.jobbings@simplyhealth.co.uk.corp.devcomm1
 August2020
 
 to connect to **my devhub**
@@ -33,6 +33,11 @@ to connect to **testing** - and set as defaultusername
 `sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
 joseph.jobbings@simplyhealth.co.uk.testing
 June2020
+
+to connect to **joncommdev** - and set as defaultusername
+`sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
+joseph.jobbings@simplyhealth.co.uk.joncommdev
+November2020
 
 
 
