@@ -17,12 +17,12 @@ to deploy single files or folders
 to connect to **develop** - as default devhub
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a develop -d`
 joseph.jobbings@simplyhealth.co.uk.develop
-October2020
+November2020
 
 to connect to **devcomm1**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm1 -s`
 joseph.jobbings@simplyhealth.co.uk.corp.devcomm1
-August2020
+December2020
 
 to connect to **my devhub**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a exp -s`
@@ -32,7 +32,7 @@ March2020
 to connect to **testing** - and set as defaultusername
 `sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
 joseph.jobbings@simplyhealth.co.uk.testing
-June2020
+December2020
 
 to connect to **joncommdev** - and set as defaultusername
 `sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
@@ -74,6 +74,8 @@ November2020
 sfdx force:org:open -u exp-scratch1
 ### open the default username 'All Communities' SetupNetworksPage'
 sfdx force:org:open -p /lightning/setup/SetupNetworks/home
+### open the default username 'schema builder Page'
+sfdx force:org:open -p /lightning/setup/SchemaBuilder/home
 
 ## Develop
 ### Start the local dev server
