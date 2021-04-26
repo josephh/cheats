@@ -2,7 +2,7 @@
 
 1st free Developer account
 josephh@rocketmail.com
-April2015
+March2021
 https://um1.lightning.force.com/one
 my domain registered : josephh-dev-ed.my.salesforce.com
 
@@ -10,6 +10,7 @@ my domain registered : josephh-dev-ed.my.salesforce.com
 dorian@namespace.josephh.com
 April2015
 https://um6.lightning.force.com/
+to connect : don't specify an "-r org URL", just do `sfdx force:auth:web:login -a namespace` (then input username and password)
 
 to deploy single files or folders
 `sfdx force:source:deploy --sourcepath /PATH/TO/YOUR/COMPONENT --json --loglevel fatal`
@@ -17,12 +18,17 @@ to deploy single files or folders
 to connect to **develop** - as default devhub
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a develop -d`
 joseph.jobbings@simplyhealth.co.uk.develop
-November2020
+December2020
 
 to connect to **devcomm1**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm1 -s`
 joseph.jobbings@simplyhealth.co.uk.corp.devcomm1
-December2020
+February2021
+
+to connect to **devcomm2**
+`sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm2 -s`
+joseph.jobbings@simplyhealth.co.uk.corp.devcomm2
+March2021
 
 to connect to **my devhub**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a exp -s`
@@ -30,14 +36,24 @@ josephh@rocketmail.com
 March2020
 
 to connect to **testing** - and set as defaultusername
-`sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
+`sfdx force:auth:web:login -r https://test.salesforce.com/ -a testing -s`
 joseph.jobbings@simplyhealth.co.uk.testing
-December2020
+April2021
 
 to connect to **joncommdev** - and set as defaultusername
 `sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
 joseph.jobbings@simplyhealth.co.uk.joncommdev
 November2020
+
+to connect to **devcomm2**
+`sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm2 -s`
+joseph.jobbings@simplyhealth.co.uk.corp.devcomm2
+April2021
+
+to connect to **devcomm3**
+`sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm3 -s`
+joseph.jobbings@simplyhealth.co.uk.corp.devcomm3
+???
 
 
 

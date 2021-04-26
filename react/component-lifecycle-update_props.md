@@ -15,7 +15,7 @@ import React, { useEffect } from 'react'
 
 const myComp = ( props ) => {
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps, nextState) {˜
     console.log('[myComp] shouldComponentUpdate')
     if(nextProps.someProp !=== this.props.someProp) {
       return true; // only re-render if something has changed

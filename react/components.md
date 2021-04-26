@@ -27,7 +27,7 @@ React 16 expects JSX blocks to have a 'root' node, typically a div. However it i
 import React from 'react';
 const persons = (props) => props.persons.map( ( person, index) =>
   return <Person ...
-    // spec of each person in the list
+    // spec of each person in the list˜
   >
 )
 export default persons
