@@ -28,7 +28,7 @@ SELECT TABLESPACE_NAME "TABLESPACE",
    PCT_INCREASE
    FROM DBA_TABLESPACES;
 ```
-_show tablespace details and which tables are associated with then_
+_show tablespace details and which tables are associated with them_
 ```
 SELECT  FILE_NAME, BLOCKS, TABLESPACE_NAME
    FROM DBA_DATA_FILES;
