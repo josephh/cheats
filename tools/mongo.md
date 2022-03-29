@@ -6,7 +6,7 @@ query for all field names in the Collection. note, in this example `application`
 `mr = db.runCommand({
   "mapreduce" : "application", "map" : function() {
     for (var key in this) {
-      emit(key, null); } }, "reduce" : function(key, stuff) { return null; }, "out": "activities" + "_keys" })
+      emit(key, null); } }, "reduce" : function(key, stuff) { return null; }, "out": "activities" + "_keys" })`
 
 db.activities_keys.distinct("_id")`
 ### update all (i.e. no query filter)

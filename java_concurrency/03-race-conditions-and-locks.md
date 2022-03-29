@@ -2,7 +2,7 @@
 ## Notes from Brian Goetz textbook
 ## 03. Race Conditions and Locking
 ### Race conditions  
-Race conditions describe the commonly seen coding scenarios that may fail foul of unlucky timing in multithreaded apps.  Examples are 'check-then-act' (lazy initialisation) and 'read-modify-write' (postincrement).  Some programs may be able to tolerate the unwanted effects and lack of predictability where race conditions arise.  Other programming scenarios - such as guaranteeing uniqueness of a code-generated value - may not be able to cope with that.
+Race conditions describe the commonly seen coding scenarios that may fall foul of unlucky timing in multithreaded apps.  Examples are 'check-then-act' (lazy initialisation) and 'read-modify-write' (postincrement).  Some programs may be able to tolerate the unwanted effects and lack of predictability where race conditions arise.  Other programming scenarios - such as guaranteeing uniqueness of a code-generated value - may not be able to cope with that.
 'Compound actions' describes the complimentary, individual operations that must happen together without interruption - effectively be treated as 'atomic'.
 ### Locking
 Java provides 'atomicity' with synchronized blocks (synchronized methods are actually a shorthand for a method entirely wrapped in a synchronized block).  
@@ -21,7 +21,7 @@ When a thread tries to acquire a lock held by another thread, it will have to wa
 1. an **acquisition count** for each lock, and
 1. an owning thread for each lock.
 1. A zero acquisition count means the lock is no longer considered held.
-Reentrancy is important in OO: for a class that extends another and calls its superclass's methods, a deadlock woult arise if the thread was not considered to already hold the lock.  E.g.
+Reentrancy is important in OO: for a class that extends another and calls its superclass's methods, a deadlock would arise if the thread was not considered to already hold the lock.  E.g.
 ```java
 public class Widget {
     public synchronized void doSomething() {
@@ -36,4 +36,4 @@ public class LoggingWidget extends Widget {
 }  
 ```
 #### Guarding state with locks
-Compound actions on shared state (check-then-act, read-modify-write) need to be atomic - by holding a lock for the entire duration of the action.  It's important to note that, if synchronisation is used to coordinate access to shared state/variables, then synchronisation is needed everywhere those variable are accessed and the _same lock_ must be used wherever that variable is accessed.˜
+Compound actions on shared state (check-then-act, read-modify-write) need to be atomic - by holding a lock for the entire duration of the action.  It's important to note that, if synchronisation is used to coordinate access to shared state/variables, then synchronisation is needed everywhere those variable are accessed and the _same lock_ must be used wherever that variable is accessed.

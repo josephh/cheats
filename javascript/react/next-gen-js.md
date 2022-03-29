@@ -82,7 +82,7 @@ Used to split array elements or object properties
 const newArray = [...oldArray, 'new item 1', '2', '3'] a new array is created that takes an old one and adds new items to it   
 ```
 ```javascript
-const newObject = {...oldObject, foo: 'bar', goo: 'far'} an new object is created built from an existing objects and adds new ones (existing properties with matching keys are replaced).   
+const newObject = {...oldObject, foo: 'bar', goo: 'far'} a new object is created built from an existing object and adds new ones (existing properties with matching keys are replaced).   
 ```
 ### Rest
 Used to merge a list of (function) arguments into an array
@@ -102,7 +102,7 @@ different to spread or rest - which works on entire arrays and objects.
 ```
 ## Primitives and references in JS
 Primitives in JS: Boolean, String, Number, Null, Undefined.  Assignment of a primitive value means the actual value is copied from one variable to another, e.g. var y = 3, z = y; // y and z are variables to 3, reassigning the y variable to another number won't affect z.   
-Object and arrays are references types.  So if one variable is assigned the object referenced stored in another variable, all that gets copied is the pointer to that object.  The 'spread' operator is very helpful in this case to clone or copy all the properties from one object to a new one.  
+Object and arrays are REFERENCE types.  So if one variable is assigned the object referenced stored in another variable, all that gets copied is the pointer to that object.  The 'spread' operator is very helpful in this case to clone or copy all the properties from one object to a new one.  
 
 ```javascript
 var person = {name: 'jack'};

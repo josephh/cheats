@@ -1,6 +1,6 @@
 # Study notes and tips from user guides - ToC
 
-## [AEM](https://github.com/josephh/cheats/blob/master/aem.md)
+## [AEM](https://github.com/josephh/cheats/blob/master/aem/aem.md)
 ## [Azure](https://github.com/josephh/cheats/blob/master/azure-swap.md)
 ## [C](https://github.com/josephh/cheats/blob/master/C.md)
 ## [Docker](https://github.com/josephh/cheats/blob/master/docker.md)
@@ -17,6 +17,5 @@
 ## [Puppet](https://github.com/josephh/cheats/blob/master/puppet.md)
 ## [React](https://github.com/josephh/cheats/blob/master/react.md)
 ## [Scala](https://github.com/josephh/cheats/blob/master/scala_notes.md)
-## [Sling](https://github.com/josephh/cheats/blob/master/sling.md)
 ## [Vi](https://github.com/josephh/cheats/blob/vi.md)
 ## [VueJs](https://github.com/josephh/cheats/blob/vue.md)
