@@ -11,3 +11,10 @@ bdaem (to use it)
 ## source
 to apply the exports in a profile file, e.g.  ~/.zshrc
 `source ~/.zshrc `
+## utils
+```
+df -h
+top
+ps -ef
+dig test.simplyhealth.co.uk
+```
