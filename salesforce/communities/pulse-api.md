@@ -10,7 +10,7 @@ https://documenter.getpostman.com/view/2632435/T1DsBcPS
 https://documenter.getpostman.com/view/2632435/T1DsBcPS?version=latest#6798e3f5-09ae-4ca5-a2b1-da5e71f62664
 
 Link to component, controller, api interactions diagrams..
-https://simplyhealth.atlassian.net/wiki/spaces/SSPSC/pages/235569840/My+Policies+logic
+https://sh.atlassian.net/wiki/spaces/SSPSC/pages/235569840/My+Policies+logic
 
 ------------------
 [08/10 09:37] Helen Woodman
@@ -22,7 +22,7 @@ Member service is already in external test (this includes both member and policy
 
 Claims is currently available on a mock server if you want it, though we do anticipate having that in external test at some point next week
 
-Health Plan DocumentationSimplyhealth Health Plan APIdocumenter.getpostman.com​[08/10 09:37] Helen Woodman
+Health Plan Documentationsh Health Plan APIdocumenter.getpostman.com​[08/10 09:37] Helen Woodman
 
 https://97e625c3-6485-4c07-90a4-b43d5e50055f.mock.pstmn.io
 
@@ -54,10 +54,10 @@ curl --location --request POST 'https://cognito-idp.eu-west-2.amazonaws.com?Vers
 	}
 }'
 To call the entitlements end point
-curl --location --request GET 'https://test-api.simplyhealth.co.uk/memberservice/v1/members/109368972/policies/18708020/entitlements' \
+curl --location --request GET 'https://test-api.sh.co.uk/memberservice/v1/members/109368972/policies/18708020/entitlements' \
 --header 'Authorization: Bearer access_token_from_previous_call'
 8:15
-You can then attach the access token to the request to the entitlements endpoint. This https://test-api.simplyhealth.co.uk/memberservice/v1/members/109368972/policies/18708020/entitlements will work with my account above. I've attached a curl request to show this too.
+You can then attach the access token to the request to the entitlements endpoint. This https://test-api.sh.co.uk/memberservice/v1/members/109368972/policies/18708020/entitlements will work with my account above. I've attached a curl request to show this too.
 -------------------
 [08/09 09:34] Dave Gregory
 

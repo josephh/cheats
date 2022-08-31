@@ -29,7 +29,7 @@ http://localhost:4503/etc/linkchecker.html
 
 [Events](https://helpx.adobe.com/experience-manager/using/events.html)
 
-[Infinity/ Depth URLs](http://localhost:4502/content/simplyhealth/jcr:content.infinity.json http://localhost:4502/content/simplyhealth.3.json)
+[Infinity/ Depth URLs](http://localhost:4502/content/sh/jcr:content.infinity.json http://localhost:4502/content/sh.3.json)
 
 [Logs - using CRXDE console pane](http://localhost:4502/crx/de)
 
@@ -177,12 +177,12 @@ Once the working copy is created, you can use the normal vlt up and vlt ci comma
 ## Assets
 ### Images
 Access the various renditions of images with the Adobe provided servlet
-http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png
+http://localhost:4502/content/dam/sh/comparison-new-child-cover.png
 ...each image gets 4 x renditions automatically, e.g.s
-http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.48.48.png
-http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.100.140.png
-http://localhost:4502/content/dam/simplyhealth/comparison-new-child-cover.png.thumb.319.319.png
-http://localhost:4502/assetdetails.html/content/dam/simplyhealth/comparison-new-child-cover.png
+http://localhost:4502/content/dam/sh/comparison-new-child-cover.png.thumb.48.48.png
+http://localhost:4502/content/dam/sh/comparison-new-child-cover.png.thumb.100.140.png
+http://localhost:4502/content/dam/sh/comparison-new-child-cover.png.thumb.319.319.png
+http://localhost:4502/assetdetails.html/content/dam/sh/comparison-new-child-cover.png
 
 ## Workflow
 https://stg-author.westeurope.cloudapp.azure.com/libs/cq/workflow/content/console.htmls

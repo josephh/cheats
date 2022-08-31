@@ -5,7 +5,7 @@ package guarded;
  * actions (see http://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html).
  * In a guarded block, one thread begins by polling a condition that must be
  * true before it can proceed.
- * The 'guard', rather than simply looping continuously until a test returns
+ * The 'guard', rather than s looping continuously until a test returns
  * true, invokes <code>Object.wait()</code> to suspend the current thread.
  * <code>Object.wait()</code> does not return until another thread has issued
  * a notification that some event may has occurred - though that <strong>may not

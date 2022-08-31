@@ -85,7 +85,7 @@ Also requires nested fields - `<lightning-input-field>` (e.g. `<lightning-input-
 `@wire` annotation is used to fetch data at component annotation time.  :information_source:  This is read-only data.
 1. Create an apex class to wire to,
 > `sfdx force:apex:class:create --classname CaseController --template DefaultApexClass --outputdir force-app/main/default/classes`  
-target dir = /Users/jjobbings/simply/salesforce/exp/force-app/main/default/lwc/force-app/main/default/classes  
+target dir = /Users/jjobbings/s/salesforce/exp/force-app/main/default/lwc/force-app/main/default/classes  
 create force-app/main/default/classes/CaseController.cls  
 create force-app/main/default/classes/CaseController.cls-meta.xml
 1. Create an LWC to connect up to the Apex class and use the wire method to initialise properties with data.  

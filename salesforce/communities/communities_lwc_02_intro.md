@@ -32,7 +32,7 @@ Once an (aura) lightning app exists you can reference components inside its html
 :warning: Lightning web component source code bundles have to go in a folder named 'lwc'.
 ```
 sfdx force:lightning:component:create --type lwc -n HelloWorld -d force-app/main/default/lwc
-target dir = /Users/jjobbings/simply/salesforce/exp/force-app/main/default/lwc  
+target dir = /Users/jjobbings/s/salesforce/exp/force-app/main/default/lwc  
 
    create force-app/main/default/lwc/helloWorld/helloWorld.js
    create force-app/main/default/lwc/helloWorld/helloWorld.html

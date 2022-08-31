@@ -16,5 +16,5 @@ to apply the exports in a profile file, e.g.  ~/.zshrc
 df -h
 top
 ps -ef
-dig test.simplyhealth.co.uk
+dig test.sh.co.uk
 ```

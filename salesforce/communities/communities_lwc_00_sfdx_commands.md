@@ -2,13 +2,13 @@
 
 1st free Developer account
 josephh@rocketmail.com
-March2021
+xxxxxxx
 https://um1.lightning.force.com/one
 my domain registered : josephh-dev-ed.my.salesforce.com
 
 2nd free Developer account
 dorian@namespace.josephh.com
-April2015
+xxxxxxx
 https://um6.lightning.force.com/
 to connect : don't specify an "-r org URL", just do `sfdx force:auth:web:login -a namespace` (then input username and password)
 
@@ -17,42 +17,42 @@ to deploy single files or folders
 
 to connect to **develop** - as default devhub
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a develop -d`
-joseph.jobbings@simplyhealth.co.uk.develop
-December2020
+joseph.jobbings@sh.co.uk.develop
+xxxxxxx
 
 to connect to **devcomm1**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm1 -s`
-joseph.jobbings@simplyhealth.co.uk.corp.devcomm1
-February2021
+joseph.jobbings@sh.co.uk.corp.devcomm1
+xxxxxxx
 
 to connect to **devcomm2**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm2 -s`
-joseph.jobbings@simplyhealth.co.uk.corp.devcomm2
-March2021
+joseph.jobbings@sh.co.uk.corp.devcomm2
+xxxxxxx
 
 to connect to **my devhub**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a exp -s`
 josephh@rocketmail.com
-March2020
+xxxxxxx
 
 to connect to **testing** - and set as defaultusername
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a testing -s`
-joseph.jobbings@simplyhealth.co.uk.testing
-April2021
+joseph.jobbings@sh.co.uk.testing
+xxxxxxx
 
 to connect to **joncommdev** - and set as defaultusername
-`sfdx force:auth:web:login -r https://simplycorporate--testing.lightning.force.com -a testing -s`
-joseph.jobbings@simplyhealth.co.uk.joncommdev
-November2020
+`sfdx force:auth:web:login -r https://scorporate--testing.lightning.force.com -a testing -s`
+joseph.jobbings@sh.co.uk.joncommdev
+xxxxxxx
 
 to connect to **devcomm2**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm2 -s`
-joseph.jobbings@simplyhealth.co.uk.corp.devcomm2
-April2021
+joseph.jobbings@sh.co.uk.corp.devcomm2
+xxxxxxx
 
 to connect to **devcomm3**
 `sfdx force:auth:web:login -r https://test.salesforce.com/ -a devcomm3 -s`
-joseph.jobbings@simplyhealth.co.uk.corp.devcomm3
+joseph.jobbings@sh.co.uk.corp.devcomm3
 ???
 
 
@@ -78,7 +78,7 @@ joseph.jobbings@simplyhealth.co.uk.corp.devcomm3
 ### View more details for a specific  org...
 > sfdx force:org:display --verbose -u exp
 ### Authorise the new scratch or with ...sfdxurl:store the (uses the auth url returned from the 'display' command)...
-> sfdx force:auth:sfdxurl:store -f  /Users/jjobbings/simply/salesforce/exp/auth -s -a exp-scratch1
+> sfdx force:auth:sfdxurl:store -f  /Users/jjobbings/s/salesforce/exp/auth -s -a exp-scratch1
 ```
 === Orgs
      ALIAS         USERNAME                       ORG ID              CONNECTED STATUS
