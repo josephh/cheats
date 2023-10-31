@@ -70,3 +70,26 @@ ConnectableFlux<Object> publish = Flux.create(fluxSink -> {
   .sample(ofSeconds(2)) // <- limit rate of input
   .publish();
 ```
+### Concurrency
+```Java
+Flux.just(1, 2, 3, 4)
+  .log()
+  .map(i -> i * 2)
+  .subscribeOn(Schedulers.parallel()) // <- subscription to be run on a different thread
+  .subscribe(elements::add);
+```
+## Debug
+Reactor library provides a **Hooks** class that lets us configure the behavior of Flux and Mono operators. With debug mode activated, app logs will include info such as,
+* the assembly trace of the publisher, this can help pin down in which class and method the error was generated,
+```
+Assembly trace from producer [reactor.core.publisher.FluxMapFuseable] :
+    reactor.core.publisher.Flux.map(Flux.java:5653)
+    c.d.b.c.s.FooNameHelper.substringFooName(FooNameHelper.java:32)
+```
+* The operators that observed the error after it was first triggered, with the user class where they were chained.
+```
+Error has been observed at the following site(s):
+        *__Flux.map ⇢ at reactor.core.debug.consumer.service.FooService.processUsingApproachOneWithErrorHandling(FooService.java:42)
+        |_ Flux.map ⇢ at reactor.core.debug.consumer.service.FooService.processUsingApproachOneWithErrorHandling(FooService.java:43)
+        |_ Flux.map ⇢ at reactor.core.debug.consumer.service.FooService.processUsingApproachOneWithErrorHandling(FooService.java:44)
+```   

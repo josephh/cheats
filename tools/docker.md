@@ -33,3 +33,19 @@ how to join a container to a network?
 ### Network Debugging
 Is one container able to talk to another?  E.g. can aem container reach the elatic one over http on port 9200?
 > wget http://aemdockercompose_elastic_1:9200/cms -d --header='authorization: Basic ZWxhc3RpYzpjaGFuZ2VtZQ=='
+
+### Debug java process running inside Docker
+Dockerfile - amend run command to expose remote debugger:
+```
+ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "/app.jar"]
+```
+Add an additional mapped docker container port, do that in the docker run command, or add to docker compose, e.g.
+```
+... # for the service/ docker container with the java code we'd like to debug...
+services:
+  inventory-fluent-integration:
+    ports:
+      - '9080:8080'
+      - '5005:5005'  # debug
+```
+...then run remote debug session via Intellij, via port 5005.

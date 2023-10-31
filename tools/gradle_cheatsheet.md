@@ -38,6 +38,7 @@ dependencies { // the Java plugin's standard configurations include compile, run
 }
 ```
 * External dependencies can be specified with full key-value `group:name:version` attributes, as in the above example, or via a shorthand omitting the keys, such as `org.hibernate:hibernate-core:3.6.7.Final`,
+* `$> gradle dependencies --configuration compileClasspath` draw out tree of dependencies
 ## Multi-project builds
 * these have a few common characteristics,
   1. A settings.gradle file in the root or master directory of the project

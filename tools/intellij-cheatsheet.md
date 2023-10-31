@@ -8,6 +8,7 @@ cmd+shift+o: open file
 ctrl+shift+backspace: jump to last line
 alt+f7: find usages
 cmd+L: goto line
+ctrl+tab: switcher
 
 ## TEXT MANIPULATION
 cmd+backspace: delete line
@@ -24,7 +25,8 @@ ctrl+shift+space: type completion
 cmd+N: suggest auto complete blocks
 ctrl+alt+o: organise imports
 cmd+shift+a: all operations
-: add a unit test
+shift+command+enter: add a unit test
+
 
 ## JAVADOC
 ctrl+j (or F1): documentation quick view

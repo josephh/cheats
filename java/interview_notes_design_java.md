@@ -1,10 +1,16 @@
 S:O:L:I:D
 
-Single responsibility - harder to break, easier to reason about.
-Open /closed (Meyer)
-Liskov - classes of the same type be substituted in place of each other
-Interface segregation - avoid breaking changes.
-Dependency Injection (IoC).  Module high level code depends on abstraction (i.e. interface) NOT directly on low-level code.  low-level code also depends on the abstraction, rather than the parent code.  SLF4J = D.I + Delegation, + loader
+Single responsibility - harder to break, easier to reason about.  
+Open /closed (Meyer)  
+Liskov - classes of the same type be substituted in place of each other  
+Interface segregation - avoid breaking changes.  
+Dependency Injection (IoC).  Module high level code depends on abstraction (i.e. interface) NOT directly on low-level code.  low-level code also depends on the abstraction, rather than the parent code.  `SLF4J = D.I + Delegation, + loader`
+
+## D.I. (Spring)
+Dependency Injection with spring; inversion of control.  This supports business logic being written and tested in isolation. The framework will take care of instantiating objects.  supports polymorphism.  OO code helps LESS CODE TO BE WRITTEN.  LESS CODE MEANS LESS COST, LESS TESTING LESS MAINTENANCE
+
+## Async/ non-block
+Async, non-blocking - do more work while waiting; maximise hardward efficiency.  multithreaded concurrent code is hard to write: deadlocks, race conditions, safe publishing.  how to write threadsafe code?
 
 
 Java questions!
@@ -14,7 +20,7 @@ a. the language designers asserted that Strings would get heavy use.  So, as a l
 b. Mutable objects can't be safely shared, so for the benefit of multithreading, strings can be safely accessed from multiple threads when immutable.
 c. HASH table keys are Strings! So hash tables would break if it was possible to reassign string variables in-flight.
 !!!!Note strings stay on the heap until garbage collected (arbitrary amount of time...).  in the case of a memory dump strings may become visible to malicious users.  Use of a mutable character array is therefore advisable - where the entries can be set to blank or null, following use.
-===============
+===============˜
 2. Interface vs Abstract class?
 a. interface = supports multiple "implements".
 b. interface = method declarations only -  no implementation.

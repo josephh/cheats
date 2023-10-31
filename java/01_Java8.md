@@ -28,7 +28,7 @@ File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
   }
 });
 ```
-with Java 8 you can wimply write,
+with Java 8 you can simply write,
 ```Java
 File[] hiddenFiles = new File(".").listFiles(File::isHidden);
 ```
