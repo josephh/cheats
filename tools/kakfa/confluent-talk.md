@@ -15,7 +15,7 @@
 ### Why are they using Confluent at Kingfisher?
 * They want an "event-enabled" application landscape
 * Predominantly a Java shop...
-## "Event streaming" and Async processing", so what?
+## "Event streaming" and "Async processing", so what?
 * Emitting events and reacting to events in real-time: mission critical applications
 * data-processing scenarios with high-volumes of data and fluctuating load
 * simplicity - decoupled applications
