@@ -1,6 +1,10 @@
 # Docker cheat sheet
 
 ## Build a docker image
+### Cross-platform
+It is possible to build a docker image for a target O/S arch but then run it inside a container on a different O/S.
+For example, mac M1/arm64 chips are relatively new and there is lots of executable software that is not compiled to run natively on this chip (annoyingly; most stuff is built for intel!).
+
 ## Build applying the instructions in a local dockerfile, incorporating everything in the local folder
 docker build -t author:0.9.1 . (the 'dot' is needed to specify the local Dockerfile)
 
@@ -49,3 +53,11 @@ services:
       - '5005:5005'  # debug
 ```
 ...then run remote debug session via Intellij, via port 5005.
+
+## Prune  
+`docker system prune --all --force`
+## remove volumes
+(this is handy with AEM to get a 'fresh' CMS)  
+`docker volume ls`   
+`docker volume rm mab-development-environment_author-repository`   
+etc

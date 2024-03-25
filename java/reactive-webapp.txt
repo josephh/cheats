@@ -1,0 +1,4 @@
+1. web app - jetty, multi threaded
+2. wiremock, with fixed delay
+3. jmeter load test.  increase no. of concurrent users.  thread count config'd in jetty is reached, then response times goes up
+4. reactive web app - use netty HTTP Client, autowired, provide a GET RequestMapping method (return type: Mono<String>), client.get().uri("/foo/hello").retrieve().bodyToMono(Map.class).map(x->"hello reactive world!");

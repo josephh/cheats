@@ -55,3 +55,29 @@ forEach() // initiates the stream pipeline
 Stream<Integer> infIntStream = Stream.iterate(2, n -> n + 2).limit(10).forEach(System.out::println);
 ```
 Note! Infinite streams can be turned into finite streams with short-circuiting, stateful, intermediary operations like `limit()`.
+### Terminal operations
+#### reduce
+on immutable objects only. 
+`reduce()` typically takes 2 generically typed args: an identifier and a generically typed binary operator. The return type, the identity and the type of BinaryOperator are all of the same type. Note the identity is the value returned if no operations complete - it's not an Optional<>. Accumulation is the operation performed by the reduce() operation.     
+If the reduce does not take an identity and only takes on arg - a BinaryOperator<T> - its return type is an Optional<T>. 
+Another reduce takes 3 args: an identity, a BiFunction and a BinaryOperator.  This is helpful when the process wants to perform intermediate work on the stream before ultimately combining it.
+#### collect
+similar  to reduce but for efficiency uses mutable objects.  `collect()` - ignoring static utility classes like Collectors.collect - take function 3 args: a Supplier (the supplier), a BiConsumer (the accumulator) and another BiConsumer (the combiner). 
+### Collectors static methods
+`toMap()`, `.groupingBy()`, `.partitioningBy`.  
+`toMap` takes 2 functions - one to map the key and another to map the value.  Another method takes a 3rd function - a "merge" which specifies what to do in the case of duplicate keys (which would otherwise lead to an 'IllegalStateException'.
+`groupingBy` is used with `collect` function to determine what keys are used in the map returned from collect. We can also provide an overloaded downstream collector as a second parameter.  For example if we wanted a map that keyed into a `set` as its value.
+`partitioningBy` splits a group into 2 groups, keyed either by true or false.
+### Intermediate operations
+`filter`, `distinct`, `map` all return a stream.
+`limit`, `sorted` are short-circuiting, stateful intermediate operations: i.e. they need to see ALL the data before they can apply their functions.
+### Primitive streams
+Java provides dedicated streams for primitives: so, `IntStream` is not the same as Stream<Integer>. They can be created in different ways, e.g.s
+```java
+int[] ia = {9,3,1,2};
+IntStream iStream1 = Arrays.stream(ia);
+IntStream iStream2 = IntStream.of(3,2,1,5,3,553);
+```
+Dedicated streams have additional methods that "know" how to perform computations, e.g. `sum()` returns the same type as the number type in the stream; `average()`, `max()`, `min()` all return an Optional.
+#### Mapping streams
+Mapping from a stream to a primitive stream is another way to create a primitive stream.  `mapToObj`, `mapToLong` 
