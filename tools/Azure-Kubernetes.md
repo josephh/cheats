@@ -18,3 +18,4 @@ e.g.s
 1. `kubectl get deployments --all-namespaces=true`  
 1. `kubectl get pods -n mab-go-test  -o wide`
 1.  shell into a specific pod, `kubectl exec -it aem-author-0 --namespace mab-go-test /bin/bash`
+
